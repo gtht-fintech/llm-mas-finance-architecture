@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "llm-mas-finance-architecture"
+version = "1.0.0"
+description = "Four-Layer Reference Architecture for LLM-based Multi-Agent Systems in Financial Intelligence"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "[Your Name]", email = "[your.email@example.com]"},
+]
+keywords = [
+    "multi-agent-systems",
+    "large-language-models",
+    "financial-intelligence",
+    "reference-architecture",
+    "governance",
+    "llm-evaluation",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Homepage = "https://github.com/[your-org]/llm-mas-finance-architecture"
+Issues = "https://github.com/[your-org]/llm-mas-finance-architecture/issues"
+Paper = "TODO: insert arXiv link after acceptance"
+
+[tool.setuptools]
+packages = ["src"]

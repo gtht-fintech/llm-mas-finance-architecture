@@ -1,0 +1,103 @@
+# L4 Permission Policy Template
+# Reference: paper §4.4 (L4 Governance Layer specification)
+#
+# This file defines a permission policy for the L4 governance gate.
+# Format: list of (agent_id, action_pattern, decision, conditions) tuples.
+# Actions use glob patterns (e.g., "tool.invoke:market_data.*").
+# Decisions: ALLOW | DENY | REQUIRE_APPROVAL
+
+version: 1
+policy_id: "default-finance-v1"
+description: "Default L4 permission policy for a high-stakes finance deployment"
+
+# Default deny: any action not explicitly listed is denied.
+default_decision: DENY
+
+# Per-agent policies
+agents:
+
+  - agent_id: "junior_quant_agent"
+    description: "Read-only quant research agent. No side effects."
+    permissions:
+      - action: "tool.invoke:market_data.fetch"
+        decision: ALLOW
+      - action: "tool.invoke:news.search"
+        decision: ALLOW
+      - action: "tool.invoke:filings.search"
+        decision: ALLOW
+      - action: "data.read:*"
+        decision: ALLOW
+    prohibitions:
+      - "tool.invoke:order.*"
+      - "tool.invoke:account.*"
+      - "report.publish:*"
+
+  - agent_id: "senior_quant_agent"
+    description: "Senior quant research agent. Wildcard tool access within research domain."
+    permissions:
+      - action: "tool.invoke:market_data.*"
+        decision: ALLOW
+      - action: "tool.invoke:news.*"
+        decision: ALLOW
+      - action: "tool.invoke:filings.*"
+        decision: ALLOW
+      - action: "tool.invoke:backtest.*"
+        decision: ALLOW
+      - action: "data.read:*"
+        decision: ALLOW
+    prohibitions:
+      - "tool.invoke:order.*"
+      - "tool.invoke:account.*"
+
+  - agent_id: "trading_agent"
+    description: "Order execution agent. All live orders require HITL approval."
+    permissions:
+      - action: "tool.invoke:order.place"
+        decision: REQUIRE_APPROVAL
+        conditions:
+          max_notional_usd: 50000
+          required_approver_role: "compliance_officer"
+          max_slippage_bps: 25
+      - action: "tool.invoke:order.cancel"
+        decision: ALLOW
+    prohibitions:
+      - "tool.invoke:account.*"
+      - "report.publish:*"
+
+  - agent_id: "compliance_agent"
+    description: "Compliance reporting agent. Publishes audit reports."
+    permissions:
+      - action: "tool.invoke:report.publish"
+        decision: REQUIRE_APPROVAL
+        conditions:
+          required_approver_role: "chief_compliance_officer"
+      - action: "data.read:*"
+        decision: ALLOW
+      - action: "audit.export:*"
+        decision: ALLOW
+
+# Global HITL rules
+hitl:
+  - trigger_action: "tool.invoke:order.place"
+    notional_threshold_usd: 10000
+    approver_role: "compliance_officer"
+    timeout_seconds: 300
+    on_timeout: "deny"
+  - trigger_action: "tool.invoke:account.transfer"
+    notional_threshold_usd: 0  # ALL transfers require approval
+    approver_role: "treasurer"
+    timeout_seconds: 600
+    on_timeout: "deny"
+  - trigger_action: "report.publish"
+    required_approver_role: "chief_compliance_officer"
+    timeout_seconds: 1800
+    on_timeout: "deny"
+
+# Compliance mapping
+compliance_tags:
+  EU_AI_ACT_ART_12: ["tool.invoke:order.place", "tool.invoke:account.transfer"]
+  EU_AI_ACT_ART_14: ["tool.invoke:order.place", "report.publish"]
+  GDPR_ART_22: ["tool.invoke:account.transfer", "report.publish"]
+  PIPL_ART_24: ["data.read:*"]
+  FINRA_RULE_3110: ["tool.invoke:order.place"]
+  SEC_RULE_15C3-5: ["tool.invoke:order.place"]

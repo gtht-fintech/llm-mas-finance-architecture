@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/[your-org]/llm-mas-finance-architecture/schemas/audit_log.json",
+  "title": "L4 Governance Audit Log Entry",
+  "description": "Append-only audit-log entry emitted by the L4 Governance Layer. Entries are hash-chained for tamper-evidence.",
+  "type": "object",
+  "required": [
+    "entry_id",
+    "timestamp",
+    "agent_id",
+    "action",
+    "resource",
+    "decision",
+    "rationale",
+    "prev_hash",
+    "entry_hash"
+  ],
+  "properties": {
+    "entry_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique identifier for this audit entry"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 UTC timestamp of the event"
+    },
+    "agent_id": {
+      "type": "string",
+      "description": "Identifier of the agent (or human) that performed the action"
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "tool.invoke",
+        "tool.invoke.*",
+        "order.place",
+        "order.cancel",
+        "account.transfer",
+        "report.publish",
+        "data.read",
+        "data.write",
+        "agent.spawn",
+        "agent.terminate",
+        "permission.grant",
+        "permission.revoke",
+        "checkpoint.hitl_approve",
+        "checkpoint.hitl_deny"
+      ]
+    },
+    "resource": {
+      "type": "string",
+      "description": "Resource identifier (e.g., tool name, order ID, file path, account ID)"
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "deny", "require_approval", "approved", "denied_after_hitl", "error"]
+    },
+    "rationale": {
+      "type": "string",
+      "description": "Human-readable explanation of why the decision was made"
+    },
+    "compliance_tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "EU_AI_ACT_ART_12",
+          "EU_AI_ACT_ART_14",
+          "GDPR_ART_22",
+          "GDPR_ART_30",
+          "PIPL_ART_24",
+          "NIST_AI_RMF_GOVERN",
+          "NIST_AI_RMF_MAP",
+          "NIST_AI_RMF_MEASURE",
+          "NIST_AI_RMF_MANAGE",
+          "FINRA_RULE_3110",
+          "SEC_RULE_15C3-5",
+          "MIFID_II_RTS_6"
+        ]
+      },
+      "description": "Compliance regulations relevant to this action"
+    },
+    "prev_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "SHA-256 hash of the previous audit entry (or 64 zeros for the genesis entry)"
+    },
+    "entry_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$",
+      "description": "SHA-256 hash of (prev_hash || canonical-JSON of this entry)"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional additional context (free-form)",
+      "additionalProperties": true
+    }
+  }
+}

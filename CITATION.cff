@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this architecture or evaluation framework, please cite the paper and the software."
+title: "LLM-MAS-Finance-Architecture"
+version: 1.0.0
+date-released: 2026-08-01
+license: MIT
+repository-code: "https://github.com/[your-org]/llm-mas-finance-architecture"
+keywords:
+  - multi-agent-systems
+  - large-language-models
+  - financial-intelligence
+  - reference-architecture
+  - governance
+  - llm-evaluation
+authors:
+  - family-names: "[Your Name]"
+    given-names: "[Your Given Name]"
+    affiliation: "[Your Affiliation]"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+references:
+  - type: article
+    title: "Evolution Pathways of LLM-based Multi-Agent Collaboration Systems and a Four-Layer Reference Architecture for Financial Intelligence Applications"
+    authors:
+      - family-names: "[Your Name]"
+    year: 2026
+    journal: "Submitted to Engineering Applications of Artificial Intelligence (EAAI)"
