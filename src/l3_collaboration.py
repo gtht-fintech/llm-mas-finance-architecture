@@ -53,10 +53,8 @@ class ConvergenceDetector:
 
     overlap_threshold: float = 0.85
     consecutive_rounds: int = 2
-
-    def __init__(self):
-        self._recent_messages: list[set[str]] = []
-        self._consecutive_high_overlap: int = 0
+    _recent_messages: list = field(default_factory=list)
+    _consecutive_high_overlap: int = 0
 
     def observe(self, message: Message) -> Optional[str]:
         tokens = set(message.content.lower().split())
