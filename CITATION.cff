@@ -13,10 +13,11 @@ keywords:
   - governance
   - llm-evaluation
 authors:
-  - family-names: "Zhiming Chen"
+  - family-names: "Chen"
     given-names: "Zhiming"
     affiliation: "Fintech Research Office, Technology R&D Department, Guotai Haitong Securities Co., Ltd."
-    orcid: "https://orcid.org/0000-0000-0000-0000"
+    orcid: "https://orcid.org/0009-0002-5347-3146"
+    email: "chenzhiming@gtht.com"
 references:
   - type: article
     title: "Evolution Pathways of LLM-based Multi-Agent Collaboration Systems and a Four-Layer Reference Architecture for Financial Intelligence Applications"
