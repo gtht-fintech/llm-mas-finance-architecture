@@ -10,7 +10,7 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
-    {name = "GTHT-Fintech Research", email = "research@gtht-fintech.com"},
+    {name = "Zhiming Chen", email = "chenzhiming@gtht.com"},
 ]
 keywords = [
     "multi-agent-systems",

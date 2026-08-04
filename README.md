@@ -74,7 +74,7 @@ If you use this architecture, evaluation framework, or benchmark reproductions, 
 
 ```bibtex
 @misc{llm-mas-finance-architecture-2026,
-  author       = {GTHT-Fintech Research},
+  author       = {Zhiming Chen},
   title        = {Evolution Pathways of LLM-based Multi-Agent Collaboration Systems
                   and a Four-Layer Reference Architecture for Financial
                   Intelligence Applications: A Reference Architecture, Evolution
