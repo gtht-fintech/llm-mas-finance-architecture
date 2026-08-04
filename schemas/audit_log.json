@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://github.com/[your-org]/llm-mas-finance-architecture/schemas/audit_log.json",
+  "$id": "https://github.com/gtht-fintech/llm-mas-finance-architecture/schemas/audit_log.json",
   "title": "L4 Governance Audit Log Entry",
   "description": "Append-only audit-log entry emitted by the L4 Governance Layer. Entries are hash-chained for tamper-evidence.",
   "type": "object",

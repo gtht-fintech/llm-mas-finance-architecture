@@ -10,7 +10,7 @@ readme = "README.md"
 license = {text = "MIT"}
 requires-python = ">=3.10"
 authors = [
-    {name = "[Your Name]", email = "[your.email@example.com]"},
+    {name = "GTHT-Fintech Research", email = "research@gtht-fintech.com"},
 ]
 keywords = [
     "multi-agent-systems",
@@ -32,8 +32,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/[your-org]/llm-mas-finance-architecture"
-Issues = "https://github.com/[your-org]/llm-mas-finance-architecture/issues"
+Homepage = "https://github.com/gtht-fintech/llm-mas-finance-architecture"
+Issues = "https://github.com/gtht-fintech/llm-mas-finance-architecture/issues"
 Paper = "TODO: insert arXiv link after acceptance"
 
 [tool.setuptools]

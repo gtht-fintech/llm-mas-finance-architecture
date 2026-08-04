@@ -19,7 +19,7 @@ This repository provides reference implementations, schemas, and benchmark repro
 ## Quick Start
 
 ```bash
-git clone https://github.com/[your-org]/llm-mas-finance-architecture
+git clone https://github.com/gtht-fintech/llm-mas-finance-architecture
 cd llm-mas-finance-architecture
 pip install -r requirements.txt
 python src/l1_model.py        # run the L1 model-layer example
@@ -74,7 +74,7 @@ If you use this architecture, evaluation framework, or benchmark reproductions, 
 
 ```bibtex
 @misc{llm-mas-finance-architecture-2026,
-  author       = {[Your Name]},
+  author       = {GTHT-Fintech Research},
   title        = {Evolution Pathways of LLM-based Multi-Agent Collaboration Systems
                   and a Four-Layer Reference Architecture for Financial
                   Intelligence Applications: A Reference Architecture, Evolution
@@ -82,7 +82,7 @@ If you use this architecture, evaluation framework, or benchmark reproductions, 
   year         = {2026},
   eprint       = {TODO: insert arXiv ID after acceptance},
   archiveprefix = {arXiv},
-  howpublished = {\url{https://github.com/[your-org]/llm-mas-finance-architecture}}
+  howpublished = {\url{https://github.com/gtht-fintech/llm-mas-finance-architecture}}
 }
 ```
 

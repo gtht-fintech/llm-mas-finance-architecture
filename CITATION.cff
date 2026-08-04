@@ -4,7 +4,7 @@ title: "LLM-MAS-Finance-Architecture"
 version: 1.0.0
 date-released: 2026-08-01
 license: MIT
-repository-code: "https://github.com/[your-org]/llm-mas-finance-architecture"
+repository-code: "https://github.com/gtht-fintech/llm-mas-finance-architecture"
 keywords:
   - multi-agent-systems
   - large-language-models
@@ -13,14 +13,14 @@ keywords:
   - governance
   - llm-evaluation
 authors:
-  - family-names: "[Your Name]"
-    given-names: "[Your Given Name]"
-    affiliation: "[Your Affiliation]"
+  - family-names: "GTHT-Fintech Research"
+    given-names: "Research"
+    affiliation: "GTHT Fintech"
     orcid: "https://orcid.org/0000-0000-0000-0000"
 references:
   - type: article
     title: "Evolution Pathways of LLM-based Multi-Agent Collaboration Systems and a Four-Layer Reference Architecture for Financial Intelligence Applications"
     authors:
-      - family-names: "[Your Name]"
+      - family-names: "GTHT-Fintech Research"
     year: 2026
     journal: "Submitted to Engineering Applications of Artificial Intelligence (EAAI)"
