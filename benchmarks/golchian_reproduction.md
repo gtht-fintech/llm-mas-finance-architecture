@@ -9,7 +9,7 @@
 This is a **personal blog post**, not a peer-reviewed publication. The methodology has been critiqued in independent analyses (e.g., Groundy et al., 2026-05) on the following grounds:
 
 1. **Single-author benchmark**: The author runs all benchmarks on a single machine (Apple M4 Max, 64GB RAM), with no replication on cloud infrastructure.
-2. **Limited model diversity**: Only one model (Qwen3 32B via Ollama) is tested per tier; results do not generalize to GPT-4o, Claude 3.5, or DeepSeek.
+2. **Limited model diversity**: Only one model (Qwen3 32B via Ollama) is tested per tier; results do not generalize to claude-opus-5, gpt-5.6-sol, or DeepSeek.
 3. **Subjective task suite**: The 200 tasks per tier are constructed by the author; their difficulty distribution may not match real-world MAS workloads.
 4. **No independent replication**: As of 2026-08, no third party has independently reproduced these numbers.
 
@@ -77,4 +77,4 @@ For academically rigorous framework comparison, we recommend:
 
 - Why does LangGraph outperform on complex tasks but only match on simple tasks?
 - Is the gap due to framework architecture, or to better defaults for the Qwen3 32B model?
-- Does the gap persist on GPT-4o / Claude 3.5 / DeepSeek?
+- Does the gap persist on claude-opus-5 / gpt-5.6-sol / DeepSeek?

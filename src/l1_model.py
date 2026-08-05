@@ -27,7 +27,7 @@ class ModelTier(str, Enum):
     """Three-tier model registry. The actual deployment is framework-agnostic."""
     FAST = "fast"        # local 7-8B models, sub-100ms latency
     MID = "mid"          # 70B+ open-source, ~500ms latency
-    FRONTIER = "frontier"  # GPT-4o / Claude 3.5+ Sonnet, ~1-2s latency
+    FRONTIER = "frontier"  # claude-opus-5 / gpt-5.6-sol, ~1-2s latency
 
 
 @dataclass

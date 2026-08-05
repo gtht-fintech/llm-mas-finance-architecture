@@ -33,7 +33,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 import statistics
 
-MODEL_NAME = "Qwen/Qwen2.5-7B-Instruct"  # original paper uses 7-8B tier
+MODEL_NAME = "Qwen/Qwen3.6-27B"  # 2026-Q2 7-27B tier equivalent
 NUM_AGENTS_RANGE = [1, 2, 3, 4]  # 1 = isolated self-correction, 2-4 = homogeneous debate
 
 def isolated_self_correction(model, tokenizer, prompt: str, n_self: int = 2) -> tuple[str, int]:
@@ -104,5 +104,5 @@ The Bertalanič finding is one of the strongest empirical arguments for the L1 t
 ## Caveats
 
 - The reproduction is a sketch; full reproduction requires the original 7-8B model + 200 test set + rubric.
-- The paper's accuracy numbers (0.77-0.78 GSM8K) are reported on Qwen2.5-7B-Instruct; results may differ on larger models.
+- The paper's accuracy numbers (0.77-0.78 GSM8K) are reported on Qwen2.5-7B-Instruct (2024 original). Updated reproduction uses Qwen3.6-27B (2026-Q2 equivalent tier); results may differ on larger models.
 - The 2.1-3.4× overhead ratio may not hold for *heterogeneous* debate (different model tiers in the same debate), which is a natural extension of L1's tiered-invocation design.
