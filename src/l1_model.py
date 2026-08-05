@@ -119,14 +119,14 @@ def default_registry() -> list[ModelProfile]:
     """Return a sensible default registry. Numbers are 2026-Q2 estimates."""
     return [
         # FAST tier (local, sub-100ms)
-        ModelProfile("qwen2.5-7b-instruct",      ModelTier.FAST,     0.0001,  80,   32000, accuracy_proxy=0.62, max_concurrent=200),
-        ModelProfile("llama-3.1-8b-instruct",    ModelTier.FAST,     0.0001,  90,   32000, accuracy_proxy=0.65, max_concurrent=200),
+        ModelProfile("qwen3.7-flash",        ModelTier.FAST,     0.0001,  80,  262000, accuracy_proxy=0.72, max_concurrent=200),
+        ModelProfile("qwen3.6-27b",          ModelTier.FAST,     0.0001,  90,  262000, accuracy_proxy=0.75, max_concurrent=200),
         # MID tier (open-source 70B+)
-        ModelProfile("qwen2.5-72b-instruct",     ModelTier.MID,      0.0009, 450,  128000, accuracy_proxy=0.78, max_concurrent=80),
-        ModelProfile("llama-3.1-70b-instruct",   ModelTier.MID,      0.0009, 500,  128000, accuracy_proxy=0.79, max_concurrent=80),
+        ModelProfile("qwen3.5-122b-a10b",    ModelTier.MID,      0.0009, 450,  262000, accuracy_proxy=0.82, max_concurrent=80),
+        ModelProfile("llama-5-70b-instruct", ModelTier.MID,      0.0009, 500,  256000, accuracy_proxy=0.83, max_concurrent=80),
         # FRONTIER tier (proprietary)
-        ModelProfile("gpt-4o-2024-08",           ModelTier.FRONTIER, 0.0050, 1200, 128000, accuracy_proxy=0.88, max_concurrent=200),
-        ModelProfile("claude-3-5-sonnet-20241022", ModelTier.FRONTIER, 0.0060, 1400, 200000, accuracy_proxy=0.89, max_concurrent=200),
+        ModelProfile("claude-opus-5",        ModelTier.FRONTIER, 0.0050, 1200, 1000000, accuracy_proxy=0.92, max_concurrent=200),
+        ModelProfile("gpt-5.6-sol",          ModelTier.FRONTIER, 0.0060, 1400, 1000000, accuracy_proxy=0.93, max_concurrent=200),
     ]
 
 
