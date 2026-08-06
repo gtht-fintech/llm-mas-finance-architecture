@@ -54,6 +54,9 @@ width: 100%;
 margin: 18px 0 22px 0;
 font-size: 0.92em;
 line-height: 1.35;
+
+page-break-inside: avoid;
+break-inside: avoid;
 }
 
 table th, table td {
@@ -61,8 +64,14 @@ border: none;
 padding: 7px 12px;
 text-align: left;
 vertical-align: top;
+
+page-break-inside: avoid;
+break-inside: avoid;
 }
 
+table thead {
+display: table-header-group; 
+}
 table thead tr {
 border-top: 2px solid #000;
 border-bottom: 1px solid #000;
@@ -75,6 +84,8 @@ padding: 8px 12px 6px 12px;
 
 table tbody tr {
 border-bottom: none; 
+page-break-inside: avoid;
+break-inside: avoid;
 }
 
 table tbody tr:last-child {
@@ -91,6 +102,27 @@ font-size: 0.95em;
 
 .table-wrapper, div > table {
 border: none;
+}
+
+
+nav#TOC, nav[role="doc-toc"] {
+page-break-before: always;
+break-before: page;
+}
+
+h1#introduction, body > h1:first-of-type {
+page-break-before: always;
+break-before: page;
+}
+
+h1 {
+page-break-before: always;
+break-before: page;
+}
+
+h1.title {
+page-break-before: avoid;
+break-before: avoid;
 }
 </style>
 </head>
