@@ -1,6 +1,45 @@
 /* Booktabs-style 3-line tables for academic papers */
 /* Override pandoc default table styling */
 
+/* =================================================================
+   Title page: center title, author, date, abstract title
+   ================================================================= */
+
+h1.title {
+    text-align: center;
+    font-size: 1.6em;
+    line-height: 1.25;
+    margin: 0 0 18px 0;
+    page-break-before: avoid;
+    break-before: avoid;
+}
+
+p.author, p.date {
+    text-align: center;
+    margin: 6px 0;
+    font-size: 0.95em;
+}
+
+p.author {
+    margin-top: 14px;
+}
+
+.abstract-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.05em;
+    margin: 18px 0 8px 0;
+}
+
+/* Abstract body: keep left-aligned, slightly indented */
+div.abstract {
+    margin: 0 18px;
+    text-align: left;
+}
+div.abstract p {
+    text-align: left;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
